@@ -12,7 +12,7 @@ import java.net.URL
 
 
 node {
-   def GIT_URL = 'https://github.com/rajeshreddy1618/Project-pipeline'
+   def GIT_URL = 'https://github.com/bhanuprakash678910/demo3.git'
    def GIT_BRANCH = 'master'
    def SONAR_BRANCH = 'master'
    def MAVEN_GOALS = 'clean install -X'
@@ -35,8 +35,8 @@ node {
    stage('\u2780 Checkout Code from GIT') 
    {
       
-        echo "INFO => Checking out from URL: ${https://github.com/rajeshreddy1618/Project-pipeline} and BRANCH: ${master}"
-                   checkout([$class: 'GitSCM', branches: [[project-pipeline: "*/${master}"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-credentials', url: "${https://github.com/rajeshreddy1618/Project-pipeline}"]]])
+        echo "INFO => Checking out from URL: ${GIT_URL} and BRANCH: ${GIT_BRANCH}"
+                   checkout([$class: 'GitSCM', branches: [[name: "*/${GIT_BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-credentials', url: "${GIT_URL}"]]])
                 
    }
     /*******************************************
@@ -60,7 +60,7 @@ node {
       
                    
                                   echo "INFO => Running Sonar Analysis"
-                                             sh "mvn -DBranch=${SONAR_BRANCH} -e -B sonar:sonar -Dsonar.host.url=${http://18.224.171.88:9000} -Dsonar.login=${admin} -Dsonar.password=${admin} -Dsonar.scm.disabled=true -X"
+                                             sh "mvn -DBranch=${SONAR_BRANCH} -e -B sonar:sonar -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_LOGIN} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.scm.disabled=true -X"
                     
                  
    }
@@ -84,7 +84,7 @@ node {
      sh '''cd /var/lib/jenkins/workspace/projectdemo/docker
 cp $WORKSPACE/target/hello-world-war-3.0.0.war .
  mv hello-world-war-3.0.0.war demo.war 
- docker build -t rajeshreddy/tomcat:$TAG .'''
+ docker build -t bhanu/tomcat:$TAG .'''
    }
   
 }
