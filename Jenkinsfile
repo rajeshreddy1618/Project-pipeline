@@ -84,7 +84,7 @@ node {
      sh '''cd /var/lib/jenkins/workspace/newpipe-project/docker
 cp $WORKSPACE/target/hello-world-war-3.0.0.war .
  mv hello-world-war-3.0.0.war demo.war 
- docker build -t bhanu/tomcat:$TAG .'''
+ docker build -t rajeshreddy331/tomcat:$TAG .'''
    }
   
 }
