@@ -12,7 +12,7 @@ import java.net.URL
 
 
 node {
-   def GIT_URL = 'https://github.com/bhanuprakash678910/demo3.git'
+   def GIT_URL = 'https://github.com/rajeshreddy1618/Project-pipeline.git'
    def GIT_BRANCH = 'master'
    def SONAR_BRANCH = 'master'
    def MAVEN_GOALS = 'clean install -X'
