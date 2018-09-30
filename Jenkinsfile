@@ -18,7 +18,7 @@ node {
    def MAVEN_GOALS = 'clean install -X'
    def MAVEN_HOME = tool 'M2_HOME'
    def JAVA_HOME = tool 'JAVA_HOME'
-   def SONAR_URL = 'http://18.223.237.201:9000'
+   def SONAR_URL = 'http://18.222.108.33:9000'
    def SONAR_LOGIN='admin'
    def SONAR_PASSWORD='admin'
    def artifactory_user='admin'
@@ -72,7 +72,7 @@ node {
      
     /*** sh 'b=`$ARTIFACT_VERSION| cut -f1 -d - `; echo $b' ***/
      echo "INFO => Deploying package to artifactory"
-     sh "curl -u $artifactory_user:$artifactory_password -T $WORKSPACE/target/hello-world-war-${ARTIFACT_VERSION}.war http://18.223.237.201:8081/artifactory/generic-local/hello-world-war-${ARTIFACT_VERSION}.war"
+     sh "curl -u $artifactory_user:$artifactory_password -T $WORKSPACE/target/hello-world-war-${ARTIFACT_VERSION}.war http://18.222.108.33:8081/artifactory/generic-local/hello-world-war-${ARTIFACT_VERSION}.war"
                 
    }
    stage('\u2784 Build Docker Image')
