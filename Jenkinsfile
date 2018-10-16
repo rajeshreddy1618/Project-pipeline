@@ -81,7 +81,7 @@ node {
      echo ARTIFACT_VERSION
      String a = ARTIFACT_VERSION.replaceAll("-SNAPSHOT","")
      
-     sh '''cd /var/lib/jenkins/workspace/newpipe-project/docker
+     sh '''cd /var/lib/jenkins/workspace/pipeline-project/docker
 cp $WORKSPACE/target/hello-world-war-3.0.0.war .
  mv hello-world-war-3.0.0.war demo.war 
  docker build -t rajeshdeploy/tomcat:$TAG .'''
