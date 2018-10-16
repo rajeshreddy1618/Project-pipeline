@@ -72,7 +72,7 @@ node {
      
     /*** sh 'b=`$ARTIFACT_VERSION| cut -f1 -d - `; echo $b' ***/
      echo "INFO => Deploying package to artifactory"
-     sh "curl -u $artifactory_user:$artifactory_password -T $WORKSPACE/target/hello-world-war-${ARTIFACT_VERSION}.war http://http://13.59.22.3:8081/artifactory/generic-local/hello-world-war-${ARTIFACT_VERSION}.war"
+     sh "curl -u $artifactory_user:$artifactory_password -T $WORKSPACE/target/hello-world-war-${ARTIFACT_VERSION}.war http://13.59.22.3:8081/artifactory/generic-local/hello-world-war-${ARTIFACT_VERSION}.war"
                 
    }
    stage('\u2784 Build Docker Image')
